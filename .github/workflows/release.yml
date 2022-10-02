@@ -5,8 +5,11 @@ concurrency: release
 
 on:
   push:
-    tags:
-      - v*.*.*
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   publish:
@@ -40,6 +43,14 @@ jobs:
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
+        id: publish
         with:
           token: ${{ secrets.NPMJS_TOKEN }}
           access: public
+          check-version: true
+
+      - name: Tag
+        if: steps.publish.outputs.type != "none"
+        run: |
+          git tag v${{ steps.publish.outputs.version }}
+          git push --tags

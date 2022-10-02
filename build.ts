@@ -11,7 +11,6 @@ const run = async () => {
     minify: true,
     keepNames: true,
     legalComments: "external",
-    external: ["esbuild"],
   };
 
   await Promise.all([
