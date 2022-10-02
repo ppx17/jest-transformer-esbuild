@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
 
@@ -50,3 +50,5 @@ jobs:
           access: public
         env:
           NPM_CONFIG_USERCONFIG: ${{ runner.temp }}/.npmrc
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+
