@@ -5,7 +5,7 @@ const run = async () => {
   const esbuildOptions: esbuild.BuildOptions = {
     platform: "node",
     target: "node16",
-    bundle: true,
+    bundle: false,
     entryPoints: ["index.ts"],
     sourcemap: "external",
     minify: true,
