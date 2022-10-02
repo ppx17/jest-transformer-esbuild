@@ -40,3 +40,9 @@ jobs:
 
       - name: Run Tests
         run: yarn test
+
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPMJS_TOKEN }}
+          access: public
