@@ -1,0 +1,36 @@
+---
+name: Release
+
+concurrency: release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*.*.*
+
+jobs:
+  test:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout the code
+
+      - run: jq -r '"::set-output name=version::v" + .version' package.json
+        id: package-json
+
+      - uses: actions/github-script@v6
+        if: githib.ref_type == "tag" && github.ref_name != steps.package-json.outputs.version
+        with:
+          script: core.setFailed('The git ref name does not match package.json version')
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: "https://registry.npmjs.org"
+          cache: "yarn"
+
+      - name: Run Tests
+        run: yarn test
