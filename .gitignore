@@ -1,3 +1,5 @@
 dist
 build.mjs
 node_modules
+
+yarn-error.log
