@@ -33,8 +33,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Run Tests
+      - name: Run Tests (CJS)
         run: yarn test
+
+      - name: Run Tests (ESM)
+        run: yarn test:esm
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
