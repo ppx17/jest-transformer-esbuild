@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2022-10-03
+### Added
+ * Auto-detect node version for esbuild
+ * Enable ESM test
+
 ## [1.0.3] - 2022-10-03
  * Move jest to devDependencies and peerDependencies
 
