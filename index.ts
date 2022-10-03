@@ -65,7 +65,7 @@ const handleResult = (
 
 const matcher = (path: string, options: EsbuildTransformOptions): boolean =>
   globsToMatcher(
-    options.transformerConfig.hoistMatch || options.config.testMatch
+    options?.transformerConfig?.hoistMatch || options.config.testMatch
   )(path);
 
 const createTransformer: TransformerCreator<
