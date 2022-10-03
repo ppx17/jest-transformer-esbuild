@@ -45,7 +45,7 @@ jobs:
           check-version: true
 
       - name: Tag
-        if: steps.publish.outputs.type != "none"
+        if: steps.publish.outputs.type != 'none'
         run: |
           git tag v${{ steps.publish.outputs.version }}
           git push --tags
