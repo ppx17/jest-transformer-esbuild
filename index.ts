@@ -78,7 +78,7 @@ const createTransformer: TransformerCreator<
       const esbuildResult = esbuild.transformSync(source, {
         ...esbuildOptions,
         sourcefile: path,
-        format: options.transformerConfig.format || "cjs",
+        format: options?.transformerConfig?.format || "cjs",
       });
 
       let babelResult: babel.BabelFileResult | null | undefined;
@@ -98,7 +98,7 @@ const createTransformer: TransformerCreator<
       const esbuildResult = await esbuild.transform(source, {
         ...esbuildOptions,
         sourcefile: path,
-        format: options.transformerConfig.format || "esm",
+        format: options?.transformerConfig?.format || "esm",
       });
 
       let babelResult: babel.BabelFileResult | null | undefined;
