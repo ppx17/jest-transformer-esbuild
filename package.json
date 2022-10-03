@@ -1,6 +1,7 @@
 {
   "name": "@cloudventure/jest-transformer-esbuild",
-  "version": "1.0.5",
+  "description": "Jest transformer using esbuild",
+  "version": "1.0.6",
   "license": "MIT",
   "scripts": {
     "prepare": "esbuild --platform=node --target=node16 --outfile=build.mjs --format=esm --log-level=error build.ts",
@@ -9,6 +10,11 @@
     "test": "yarn jest",
     "test:esm": "NODE_OPTIONS=--experimental-vm-modules yarn jest --config jest.config.esm.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudventure-io/jest-transformer-esbuild.git"
+  },
+  "author": "Vahe Sahakyan <vahe@cloudventure.io>",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "dependencies": {
