@@ -1,9 +1,14 @@
 # jest-transformer-esbuild
 
-A simple Jest transformer using esbuild, supports mocks and `istanbul ignore` comments.
+A simple Jest transformer using esbuild.
 
-* `istanbul ignore` must be defines as multiline legal comments, for example
+Supports:
+* mocks
+* `istanbul ignore` comments, see below for details
+* sync and async transformers
+* Jest ESM mode
 
+`istanbul ignore` comments should be defineds as multiline legal comments
 ```typescript
 /*! istanbul ignore next */
 ```
@@ -18,10 +23,27 @@ yarn add -D @cloudventure/jest-transformer-esbuild
 
 ## Usage
 
+`jest.config.json` example:
+
 ```JSON
 {
     "transform": {
         "^.+\\.tsx?$": ["@cloudventure/jest-transformer-esbuild"]
     }
+}
+```
+
+### ESM
+
+Please follow this guide for enabling ESM for Jest https://jestjs.io/docs/ecmascript-modules.
+
+`jest.config.json` example:
+
+```JSON
+{
+    "transform": {
+        "^.+\\.tsx?$": ["@cloudventure/jest-transformer-esbuild"]
+    },
+    "extensionsToTreatAsEsm": [".ts", ".tsx"]
 }
 ```
