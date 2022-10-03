@@ -17,10 +17,14 @@ export interface TransformerConfig {
 
 export type EsbuildTransformOptions = TransformOptions<TransformerConfig>;
 
+const nodeMajorVersion = process.version.match(/^v(\d+)\./)?.[1];
+
 const esbuildOptions: esbuild.TransformOptions = {
   sourcemap: "inline",
   loader: "tsx",
   legalComments: "inline",
+  platform: "node",
+  target: nodeMajorVersion ? `node${nodeMajorVersion}` : undefined,
 };
 
 const babelOptions: babel.TransformOptions = {
