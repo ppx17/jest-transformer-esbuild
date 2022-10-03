@@ -1,3 +1,5 @@
+import { jest } from "@jest/globals";
+
 const mock = jest.fn();
 
 describe("basic", () => {
