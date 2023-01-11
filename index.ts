@@ -21,7 +21,7 @@ const nodeMajorVersion = process.version.match(/^v(\d+)\./)?.[1];
 
 const esbuildOptions: esbuild.TransformOptions = {
   sourcemap: "inline",
-  loader: "tsx",
+  loader: "ts",
   legalComments: "inline",
   platform: "node",
   target: nodeMajorVersion ? `node${nodeMajorVersion}` : undefined,
